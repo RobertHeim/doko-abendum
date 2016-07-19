@@ -1,8 +1,8 @@
-TARGET=abendum.pdf
+TARGET=addendum.pdf
 
 OUTDIR=out/
 
-SOURCES=abendum.tex
+SOURCES=addendum.tex
 
 
 ### DON'T CHANGE ###
