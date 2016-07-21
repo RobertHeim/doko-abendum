@@ -1,6 +1,6 @@
 TARGET=addendum.pdf
 
-OUTDIR=out/
+OUTDIR=out
 
 SOURCES=addendum.tex
 
@@ -16,4 +16,4 @@ clean:
 
 warnings:
 	@-echo -------------------------- Warnings from latex
-	@-grep arning: $(TARGET:.pdf=.log)
+	@-grep -e [Ww]arning: $(OUTDIR)/$(TARGET:.pdf=.log)
