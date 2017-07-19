@@ -15,5 +15,6 @@ clean:
 	@rm -rf $(OUTDIR)
 
 warnings:
-	@-echo -------------------------- Warnings from latex
-	@-grep -e [Ww]arning: $(OUTDIR)/$(TARGET:.pdf=.log)
+	@echo -------------------------- Warnings from latex
+	@grep -e "[Ww]arning:" $(OUTDIR)/$(TARGET:.pdf=.log); if [ $$? -eq 1 ]; then echo "no warnings :)"; fi
+	@echo --------------------------
