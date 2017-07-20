@@ -8,11 +8,11 @@ SOURCES=addendum.tex
 ### DON'T CHANGE ###
 
 all: outdir
-	@pdflatex -aux-directory=$(OUTDIR) -output-directory=$(OUTDIR) $(TARGET:.pdf=) warnings
+	pdflatex -shell-escape -aux-directory=$(OUTDIR) -output-directory=$(OUTDIR) $(TARGET:.pdf=) warnings
 
 # you'll need latexmk and mupdf installed on a unix-like system for this target to work
 latexmk: outdir $(SOURCES)
-	@latexmk -outdir=$(OUTDIR) -auxdir=$(OUTDIR) -e '$$pdf_previewer="start mupdf"; $$pdf_update_method=2; $$pdf_update_signal="SIGHUP";' -pvc -pdf $(SOURCES)
+	@latexmk -outdir=$(OUTDIR) -auxdir=$(OUTDIR) -e '$$pdf_previewer="start mupdf"; $$pdf_update_method=2; $$pdf_update_signal="SIGHUP";' -pvc -pdf -pdflatex="pdflatex --shell-escape %O %S" $(SOURCES)
 
 outdir:
 	@mkdir -p $(OUTDIR)

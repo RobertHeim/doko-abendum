@@ -11,10 +11,15 @@
 
 \newcommand{\gdq}[1]{\glqq{}#1\grqq{}} % german double quotes
 
+\makeatletter
+\newcommand{\gitref}{\input{|"git rev-parse --short HEAD"}}
+\makeatother
+
 \begin{document}
 
 \title{Addendum zu den Turnierspielregeln\\des Deutschen Doppelkopfverbandes e.V.}
 \author{Bernhard Kirchen, Robert Heim}
+\date{\today\\git commit \gitref}
 
 \maketitle
 
