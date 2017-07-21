@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ref=$(git rev-parse --short HEAD)
+dirt=$([ -n "$(git status --porcelain)" ] && echo "-dirty" || echo "-clean")
+echo "${ref}${dirt}"
